@@ -6,13 +6,9 @@ class RouterX {
         this.__beforeEachCache = null;
         this.__afterEachCache = null;
         this.__onUpdateCache = null;
-        this.__config = {};
     }
 
-    /**
-     *
-     */
-    get reactRouter() {
+    get config() {
         const {
             __config,
             __beforeEachCache,

@@ -270,12 +270,7 @@ function () {
     this.__beforeEachCache = null;
     this.__afterEachCache = null;
     this.__onUpdateCache = null;
-    this.__config = {};
   }
-  /**
-   *
-   */
-
 
   _createClass(RouterX, [{
     key: "beforeEach",
@@ -293,7 +288,7 @@ function () {
       this.__onUpdateCache = callback;
     }
   }, {
-    key: "reactRouter",
+    key: "config",
     get: function get() {
       var __config = this.__config,
           __beforeEachCache = this.__beforeEachCache,

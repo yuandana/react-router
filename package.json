@@ -1,11 +1,12 @@
 {
-    "name": "@yuandana/router-x",
+    "name": "@yuandana/react-router",
     "version": "0.1.0",
     "description": "",
     "main": "dist/umd/index.js",
     "module": "dist/es/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "NODE_ENV=production rollup -c --watch",
         "build": "NODE_ENV=production rollup -c"
     },
     "repository": {
@@ -21,6 +22,9 @@
     "files": [
         "dist"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "devDependencies": {
         "@babel/core": "^7.6.4",
         "@babel/preset-env": "^7.6.3",
