@@ -6,16 +6,23 @@ import replace from 'rollup-plugin-replace';
 
 export default {
     input: `./src/index.js`,
+    // external: ['react-is'],
     output: [
         {
             file: `./dist/es/index.js`,
             format: 'es',
-            name: '@yuandana/redux-x'
+            name: '@yuandana/react-router'
+            // globals: {
+            //     'react-is': 'reactIs'
+            // }
         },
         {
             file: `./dist/umd/index.js`,
             format: 'umd',
-            name: '@yuandana/redux-x'
+            name: '@yuandana/react-router'
+            // globals: {
+            //     'react-is': 'reactIs'
+            // }
         }
     ],
     plugins: [

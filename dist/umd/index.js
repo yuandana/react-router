@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global['@yuandana/redux-x'] = factory());
-}(this, function () { 'use strict';
+  (global = global || self, global['@yuandana/react-router'] = factory());
+}(this, (function () { 'use strict';
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -31,22 +31,20 @@
    *
    * @param {*} obj
    */
-  var isExtendsReactComponent = function isExtendsReactComponent(obj) {
-    if (!obj) {
-      return false;
-    } // return Object.getPrototypeOf(obj) === React.Component;
+  // const isExtendsReactComponent = obj => {
+  //     if (!obj) {
+  //         return false;
+  //     }
+  //     // return Object.getPrototypeOf(obj) === React.Component;
+  //     if (obj.prototype && obj.prototype.isReactComponent) {
+  //         return true;
+  //     }
+  //     if (typeof obj === 'function' && obj.length <= 1) {
+  //         return true;
+  //     }
+  //     return false;
+  // };
 
-
-    if (obj.prototype && obj.prototype.isReactComponent) {
-      return true;
-    }
-
-    if (typeof obj === 'function' && obj.length <= 1) {
-      return true;
-    }
-
-    return false;
-  };
   /**
    *
    * @param {*} nextState
@@ -54,8 +52,6 @@
    * @param {*} callback
    * @param {*} options
    */
-
-
   var beforeEachHook = function beforeEachHook(nextState, replace, callback) {
     var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
     var oriOnEnter = options.oriOnEnter,
@@ -108,10 +104,10 @@
   var componentEncodeHandler = function componentEncodeHandler(obj, component) {
     if (!component) {
       return;
-    }
+    } // let key = isExtendsReactComponent(component) ? 'component' : 'getComponent';
 
-    var key = isExtendsReactComponent(component) ? 'component' : 'getComponent';
-    obj[key] = component;
+
+    obj['component'] = component;
   };
 
   var nameEncodeHandler = function nameEncodeHandler(obj, name) {
@@ -309,4 +305,4 @@
 
   return RouterX;
 
-}));
+})));

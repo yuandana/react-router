@@ -3,19 +3,19 @@
  *
  * @param {*} obj
  */
-const isExtendsReactComponent = obj => {
-    if (!obj) {
-        return false;
-    }
-    // return Object.getPrototypeOf(obj) === React.Component;
-    if (obj.prototype && obj.prototype.isReactComponent) {
-        return true;
-    }
-    if (typeof obj === 'function' && obj.length <= 1) {
-        return true;
-    }
-    return false;
-};
+// const isExtendsReactComponent = obj => {
+//     if (!obj) {
+//         return false;
+//     }
+//     // return Object.getPrototypeOf(obj) === React.Component;
+//     if (obj.prototype && obj.prototype.isReactComponent) {
+//         return true;
+//     }
+//     if (typeof obj === 'function' && obj.length <= 1) {
+//         return true;
+//     }
+//     return false;
+// };
 
 /**
  *
@@ -68,8 +68,8 @@ const componentEncodeHandler = (obj, component) => {
     if (!component) {
         return;
     }
-    let key = isExtendsReactComponent(component) ? 'component' : 'getComponent';
-    obj[key] = component;
+    // let key = isExtendsReactComponent(component) ? 'component' : 'getComponent';
+    obj['component'] = component;
 };
 
 const nameEncodeHandler = (obj, name) => {
