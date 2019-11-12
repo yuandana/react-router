@@ -145,13 +145,15 @@ const onEnterEncodeHandler = (obj, options) => {
         const [prevState, nextState, replace, callback] = args;
         const prevPathname = prevState.location.pathname;
         const nextPathname = nextState.location.pathname;
+        const { routes = [] } = nextState;
+        const lastMatchRoutes =
+            routes && routes[routes.length - 1] && routes[routes.length - 1];
+        const matchPath = lastMatchRoutes && lastMatchRoutes.path;
         if (
             redirect &&
             prevPathname !== nextPathname &&
             prevPathname.indexOf(nextPathname) !== -1 &&
-            (nextPathname === `/${path}` ||
-                nextPathname === path ||
-                path === '*')
+            ((matchPath && matchPath === path) || path === '*')
         ) {
             redirectHandler(nextState, replace, redirect);
         }

@@ -188,8 +188,12 @@ var onEnterEncodeHandler = function onEnterEncodeHandler(obj, options) {
         callback = args[3];
     var prevPathname = prevState.location.pathname;
     var nextPathname = nextState.location.pathname;
+    var _nextState$routes2 = nextState.routes,
+        routes = _nextState$routes2 === void 0 ? [] : _nextState$routes2;
+    var lastMatchRoutes = routes && routes[routes.length - 1] && routes[routes.length - 1];
+    var matchPath = lastMatchRoutes && lastMatchRoutes.path;
 
-    if (redirect && prevPathname !== nextPathname && prevPathname.indexOf(nextPathname) !== -1 && (nextPathname === "/".concat(path) || nextPathname === path || path === '*')) {
+    if (redirect && prevPathname !== nextPathname && prevPathname.indexOf(nextPathname) !== -1 && (matchPath && matchPath === path || path === '*')) {
       redirectHandler(nextState, replace, redirect);
     }
 
